@@ -13,4 +13,8 @@ public interface UserLoginServiceImpl extends UserDetailsService {
     void registerUser(UserRegistrationDTO userRegistrationDTO) throws Exception;
 
     User getUserDetails(int userId);
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 927715866ad88726fdcc804294787c6c83ec4758

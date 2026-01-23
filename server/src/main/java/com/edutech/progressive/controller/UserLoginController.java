@@ -17,4 +17,8 @@ public class UserLoginController {
     public ResponseEntity<?> getUserDetails(int userId) {
         return null;
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 927715866ad88726fdcc804294787c6c83ec4758

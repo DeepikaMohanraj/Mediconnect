@@ -19,4 +19,8 @@ public interface AppointmentService {
 
     public List<Appointment> getAppointmentByStatus(String status);
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 927715866ad88726fdcc804294787c6c83ec4758

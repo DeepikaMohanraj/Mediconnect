@@ -26,4 +26,8 @@ public class BillingController {
     public ResponseEntity<List<Billing>> getBillsByPatient(int patientId) {
         return null;
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 927715866ad88726fdcc804294787c6c83ec4758
