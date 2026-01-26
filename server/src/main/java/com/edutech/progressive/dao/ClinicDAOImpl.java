@@ -1,10 +1,5 @@
 package com.edutech.progressive.dao;
 
-<<<<<<< HEAD
-public class ClinicDAOImpl {
-
-}
-=======
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -222,4 +217,3 @@ public class ClinicDAOImpl implements ClinicDAO {
     }
 
 }
->>>>>>> 927715866ad88726fdcc804294787c6c83ec4758

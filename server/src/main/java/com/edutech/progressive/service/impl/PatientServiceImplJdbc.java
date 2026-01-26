@@ -1,9 +1,5 @@
 package com.edutech.progressive.service.impl;
 
-<<<<<<< HEAD
-public class PatientServiceImplJdbc  {
-
-=======
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -79,5 +75,4 @@ public class PatientServiceImplJdbc implements PatientService{
         }finally{}
     }
     
->>>>>>> 927715866ad88726fdcc804294787c6c83ec4758
 }

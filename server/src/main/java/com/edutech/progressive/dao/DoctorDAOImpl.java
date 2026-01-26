@@ -1,13 +1,5 @@
 package com.edutech.progressive.dao;
 
-<<<<<<< HEAD
-
-public class DoctorDAOImpl {
-
-
-
-}
-=======
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -188,4 +180,3 @@ public DoctorDAOImpl(){}
     }
 
 }
->>>>>>> 927715866ad88726fdcc804294787c6c83ec4758

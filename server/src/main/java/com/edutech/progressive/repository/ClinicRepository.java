@@ -1,9 +1,5 @@
 package com.edutech.progressive.repository;
 
-<<<<<<< HEAD
-public interface ClinicRepository {
-}
-=======
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -20,6 +16,8 @@ public interface ClinicRepository extends JpaRepository<Clinic, Integer> {
 
     List<Clinic> findAllByLocation(String location);
 
+    Clinic findByClinicName(String clinicName);
+
     @Query("SELECT c FROM Clinic c WHERE c.doctor.doctorId = :doctorId")
     List<Clinic> findAllByDoctorId(int doctorId);
 
@@ -29,4 +27,3 @@ public interface ClinicRepository extends JpaRepository<Clinic, Integer> {
     void deleteByDoctorId(int doctorId);
 
 }
->>>>>>> 927715866ad88726fdcc804294787c6c83ec4758

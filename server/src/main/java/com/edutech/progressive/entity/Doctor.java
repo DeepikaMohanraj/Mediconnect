@@ -1,9 +1,5 @@
 package com.edutech.progressive.entity;
 
-<<<<<<< HEAD
-public class Doctor {
-
-=======
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -79,5 +75,4 @@ public class Doctor implements Comparable<Doctor> {
                 + ", contactNumber=" + contactNumber + ", email=" + email + ", yearsOfExperience=" + yearsOfExperience
                 + "]";
     }
->>>>>>> 927715866ad88726fdcc804294787c6c83ec4758
 }

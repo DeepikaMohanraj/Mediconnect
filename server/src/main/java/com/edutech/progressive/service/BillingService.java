@@ -15,8 +15,4 @@ public interface BillingService {
     void deleteBill(int billingId);
 
     List<Billing> getBillsByPatientId(int patientId);
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 927715866ad88726fdcc804294787c6c83ec4758

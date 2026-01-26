@@ -34,8 +34,4 @@ public class AppointmentController {
     public ResponseEntity<List<Appointment>> getAppointmentByStatus(String status) {
         return null;
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 927715866ad88726fdcc804294787c6c83ec4758

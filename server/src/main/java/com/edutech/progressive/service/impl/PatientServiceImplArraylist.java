@@ -1,8 +1,5 @@
 package com.edutech.progressive.service.impl;
 
-<<<<<<< HEAD
-public class PatientServiceImplArraylist  {
-=======
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -45,6 +42,5 @@ public class PatientServiceImplArraylist implements PatientService {
     public void emptyArrayList(){
         patientList.clear();
     }
->>>>>>> 927715866ad88726fdcc804294787c6c83ec4758
 
 }

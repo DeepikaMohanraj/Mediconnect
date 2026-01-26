@@ -1,16 +1,14 @@
 package com.edutech.progressive.service.impl;
 
-<<<<<<< HEAD
-public class ClinicServiceImplJpa  {
-
-=======
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.edutech.progressive.entity.Clinic;
+import com.edutech.progressive.exception.ClinicAlreadyExistsException;
 import com.edutech.progressive.repository.ClinicRepository;
 import com.edutech.progressive.service.ClinicService;
 
@@ -36,11 +34,19 @@ public class ClinicServiceImplJpa implements ClinicService {
 
     @Override
     public Integer addClinic(Clinic clinic) throws Exception {
+        Clinic existingClinic = clinicRepository.findByClinicName(clinic.getClinicName());
+        if(existingClinic != null){
+            throw new ClinicAlreadyExistsException("Clinic already existed.");
+        }
         return clinicRepository.save(clinic).getClinicId();
     }
 
     @Override
     public void updateClinic(Clinic clinic) throws Exception {
+        Clinic existingClinic = clinicRepository.findByClinicName(clinic.getClinicName());
+        if(existingClinic != null){
+            throw new ClinicAlreadyExistsException("Clinic already exists with name " + clinic.getClinicName());
+        }
         clinicRepository.save(clinic);
     }
 
@@ -58,5 +64,4 @@ public class ClinicServiceImplJpa implements ClinicService {
     public List<Clinic> getAllClinicByDoctorId(int doctorId){
         return clinicRepository.findAllByDoctorId(doctorId);
     }
->>>>>>> 927715866ad88726fdcc804294787c6c83ec4758
 }

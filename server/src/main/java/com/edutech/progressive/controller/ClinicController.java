@@ -1,41 +1,7 @@
 package com.edutech.progressive.controller;
 
 import com.edutech.progressive.entity.Clinic;
-<<<<<<< HEAD
-import org.springframework.http.ResponseEntity;
-
-import java.util.List;
-
-public class ClinicController {
-    public ResponseEntity<List<Clinic>> getAllClinics() {
-        return null;
-    }
-
-    public ResponseEntity<Clinic> getClinicById(int clinicId) {
-        return null;
-    }
-
-    public ResponseEntity<Integer> addClinic(Clinic clinic) {
-        return null;
-    }
-
-    public ResponseEntity<Void> updateClinic(int clinicId, Clinic clinic) {
-        return null;
-    }
-
-    public ResponseEntity<Void> deleteClinic(int clinicId) {
-        return null;
-    }
-
-    public ResponseEntity<List<Clinic>> getAllClinicByLocation(String location) {
-        return null;
-    }
-
-    public ResponseEntity<List<Clinic>> getAllClinicByDoctorId(int doctorId) {
-        return null;
-    }
-}
-=======
+import com.edutech.progressive.exception.ClinicAlreadyExistsException;
 import com.edutech.progressive.service.impl.ClinicServiceImplJpa;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -84,7 +50,10 @@ public class ClinicController {
     public ResponseEntity<Integer> addClinic(@RequestBody Clinic clinic) {
         try {
             return new ResponseEntity<Integer>(clinicServiceImplJpa.addClinic(clinic), HttpStatus.CREATED);
-        } catch (Exception e) {
+        }catch(ClinicAlreadyExistsException e){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        } 
+        catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -95,7 +64,11 @@ public class ClinicController {
             clinic.setClinicId(clinicId);
             clinicServiceImplJpa.updateClinic(clinic);
             return new ResponseEntity<Void>(HttpStatus.OK);
-        } catch (Exception e) {
+        }
+        catch(ClinicAlreadyExistsException e){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }  
+        catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -128,4 +101,3 @@ public class ClinicController {
         }
     }
 }
->>>>>>> 927715866ad88726fdcc804294787c6c83ec4758

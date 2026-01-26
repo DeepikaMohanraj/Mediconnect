@@ -1,9 +1,5 @@
 package com.edutech.progressive.entity;
 
-<<<<<<< HEAD
-public class Patient {
-
-=======
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -78,5 +74,4 @@ public class Patient implements Comparable<Patient>{
         return "Patient [patientId=" + patientId + ", fullName=" + fullName + ", dateOfBirth=" + dateOfBirth
                 + ", contactNumber=" + contactNumber + ", email=" + email + ", address=" + address + "]";
     }    
->>>>>>> 927715866ad88726fdcc804294787c6c83ec4758
 }

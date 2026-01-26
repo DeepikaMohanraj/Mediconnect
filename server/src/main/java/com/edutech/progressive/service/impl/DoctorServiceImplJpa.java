@@ -1,8 +1,5 @@
 package com.edutech.progressive.service.impl;
 
-<<<<<<< HEAD
-public class DoctorServiceImplJpa  {
-=======
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -11,12 +8,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.edutech.progressive.entity.Doctor;
+import com.edutech.progressive.exception.DoctorAlreadyExistsException;
 import com.edutech.progressive.repository.ClinicRepository;
 import com.edutech.progressive.repository.DoctorRepository;
 import com.edutech.progressive.service.DoctorService;
 @Service
 public class DoctorServiceImplJpa implements DoctorService {
-
+    
     private DoctorRepository doctorRepository;
 
     @Autowired
@@ -34,6 +32,10 @@ public class DoctorServiceImplJpa implements DoctorService {
 
     @Override
     public Integer addDoctor(Doctor doctor) throws Exception {
+        Doctor existingDoctor = doctorRepository.findByEmail(doctor.getEmail());
+        if(existingDoctor != null){
+            throw new DoctorAlreadyExistsException("Doctor with email" + doctor.getEmail() + " already exists.");
+        }
         return doctorRepository.save(doctor).getDoctorId();
     }
 
@@ -46,6 +48,10 @@ public class DoctorServiceImplJpa implements DoctorService {
 
     @Override
     public void updateDoctor(Doctor doctor) throws Exception {
+        Doctor existingDoctor = doctorRepository.findByEmail(doctor.getEmail());
+        if(existingDoctor != null){
+            throw new DoctorAlreadyExistsException("Doctor with email" + doctor.getEmail() + " already exists.");
+        }
         doctorRepository.save(doctor);
     }
 
@@ -59,6 +65,5 @@ public class DoctorServiceImplJpa implements DoctorService {
     public Doctor getDoctorById(int doctorId) throws Exception {
         return doctorRepository.findByDoctorId(doctorId);
     }
->>>>>>> 927715866ad88726fdcc804294787c6c83ec4758
 
 }

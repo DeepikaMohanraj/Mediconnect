@@ -1,10 +1,5 @@
 package com.edutech.progressive.dao;
 
-<<<<<<< HEAD
-public class PatientDAOImpl {
-
-}
-=======
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -191,4 +186,3 @@ public class PatientDAOImpl implements PatientDAO {
         }
     }
 }
->>>>>>> 927715866ad88726fdcc804294787c6c83ec4758

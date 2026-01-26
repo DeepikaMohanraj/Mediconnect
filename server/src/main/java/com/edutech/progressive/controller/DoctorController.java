@@ -1,38 +1,7 @@
 package com.edutech.progressive.controller;
 
 import com.edutech.progressive.entity.Doctor;
-<<<<<<< HEAD
-import org.springframework.http.ResponseEntity;
-
-import java.util.List;
-
-public class DoctorController {
-
-    public ResponseEntity<List<Doctor>> getAllDoctors() {
-        return null;
-    }
-
-    public ResponseEntity<Doctor> getDoctorById(int doctorId) {
-        return null;
-    }
-
-    public ResponseEntity<Integer> addDoctor(Doctor doctor) {
-        return null;
-    }
-
-    public ResponseEntity<Void> updateDoctor(int doctorId, Doctor doctor) {
-        return null;
-    }
-
-    public ResponseEntity<Void> deleteDoctor(int doctorId) {
-        return null;
-    }
-
-    public ResponseEntity<List<Doctor>> getDoctorSortedByExperience() {
-        return null;
-    }
-}
-=======
+import com.edutech.progressive.exception.DoctorAlreadyExistsException;
 import com.edutech.progressive.service.impl.DoctorServiceImplJpa;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -78,7 +47,11 @@ public class DoctorController {
     public ResponseEntity<Integer> addDoctor(@RequestBody Doctor doctor) {
         try {
             return new ResponseEntity<Integer>(doctorServiceImplJpa.addDoctor(doctor), HttpStatus.CREATED);
-        } catch (Exception e) {
+        } 
+        catch(DoctorAlreadyExistsException e){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -89,7 +62,11 @@ public class DoctorController {
             doctor.setDoctorId(doctorId);
             doctorServiceImplJpa.updateDoctor(doctor);
             return new ResponseEntity<Void>(HttpStatus.OK);
-        } catch (Exception e) {
+        }
+        catch(DoctorAlreadyExistsException e){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -112,4 +89,3 @@ public class DoctorController {
         }
     }
 }
->>>>>>> 927715866ad88726fdcc804294787c6c83ec4758

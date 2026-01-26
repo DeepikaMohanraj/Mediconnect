@@ -1,44 +1,8 @@
 package com.edutech.progressive.controller;
 
 import com.edutech.progressive.entity.Patient;
-<<<<<<< HEAD
-import org.springframework.http.ResponseEntity;
-
-import java.util.List;
-
-public class PatientController {
-
-    public ResponseEntity<List<Patient>> getAllPatients() {
-        return null;
-    }
-
-    public ResponseEntity<Patient> getPatientById(int patientId) {
-        return null;
-    }
-
-    public ResponseEntity<Integer> addPatient(Patient patient) {
-        return null;
-    }
-
-    public ResponseEntity<Void> updatePatient(int patientId, Patient patient) {
-        return null;
-    }
-
-    public ResponseEntity<Void> deletePatient(int patientId) {
-        return null;
-    }
-
-    public ResponseEntity<List<Patient>> getAllPatientFromArrayList() {
-        return null;
-    }
-
-    public ResponseEntity<Void> addPatientToArrayList() {
-        return null;
-    }
-
-    public ResponseEntity<List<Patient>> getAllPatientSortedByNameFromArrayList() {
-        return null;
-=======
+import com.edutech.progressive.exception.PatientAlreadyExistsException;
+import com.edutech.progressive.exception.PatientNotFoundException;
 import com.edutech.progressive.service.impl.PatientServiceImplArraylist;
 import com.edutech.progressive.service.impl.PatientServiceImplJpa;
 
@@ -80,16 +44,22 @@ public class PatientController {
         try {
             Patient patient = patientServiceImplJpa.getPatientById(patientId);
             return new ResponseEntity<Patient>(patient, HttpStatus.OK);
-        } catch (Exception e) {
+        }catch(PatientNotFoundException e){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        } 
+        catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+        } 
     }
 
     @PostMapping
     public ResponseEntity<Integer> addPatient(@RequestBody Patient patient) {
         try {
             return new ResponseEntity<Integer>(patientServiceImplJpa.addPatient(patient), HttpStatus.OK);
-        } catch (Exception e) {
+        } catch(PatientAlreadyExistsException e){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        } 
+        catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -99,7 +69,11 @@ public class PatientController {
         try {
             patientServiceImplJpa.updatePatient(patient);
             return new ResponseEntity<>(HttpStatus.OK);
-        } catch (Exception e) {
+        }
+        catch(PatientAlreadyExistsException e){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        } 
+        catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -138,6 +112,5 @@ public class PatientController {
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
->>>>>>> 927715866ad88726fdcc804294787c6c83ec4758
     }
 }

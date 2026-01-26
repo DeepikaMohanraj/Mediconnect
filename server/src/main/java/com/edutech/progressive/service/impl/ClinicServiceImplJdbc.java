@@ -1,9 +1,5 @@
 package com.edutech.progressive.service.impl;
 
-<<<<<<< HEAD
-public class ClinicServiceImplJdbc  {
-
-=======
 import java.util.List;
 
 import com.edutech.progressive.dao.ClinicDAO;
@@ -72,5 +68,4 @@ public class ClinicServiceImplJdbc implements ClinicService{
         
     }
     
->>>>>>> 927715866ad88726fdcc804294787c6c83ec4758
 }

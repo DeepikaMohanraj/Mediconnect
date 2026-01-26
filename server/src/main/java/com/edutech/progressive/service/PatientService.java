@@ -1,32 +1,4 @@
 package com.edutech.progressive.service;
-<<<<<<< HEAD
-
-import com.edutech.progressive.dto.PatientDTO;
-import com.edutech.progressive.entity.Patient;
-
-import java.util.List;
-
-public interface PatientService {
-
-    List<Patient> getAllPatients();
-
-    Integer addPatient(Patient patient);
-
-    List<Patient> getAllPatientSortedByName();
-
-    default void emptyArrayList() {
-    }
-
-    //Do not implement these methods in PatientServiceImplArraylist.java class
-    default void updatePatient(Patient patient) {}
-
-    default void deletePatient(int patientId) {}
-
-    default Patient getPatientById(int patientId) {
-        return null;
-    }
-
-=======
  
 import com.edutech.progressive.dto.PatientDTO;
 import com.edutech.progressive.entity.Patient;
@@ -54,12 +26,7 @@ public interface PatientService {
         return null;
     }
  
->>>>>>> 927715866ad88726fdcc804294787c6c83ec4758
     //Do not implement these methods in PatientServiceImplArraylist.java and PatientServiceImplJdbc.java class
     //Do not implement this method until day-13
     default public void modifyPatientDetails(PatientDTO patientDTO) { }
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 927715866ad88726fdcc804294787c6c83ec4758

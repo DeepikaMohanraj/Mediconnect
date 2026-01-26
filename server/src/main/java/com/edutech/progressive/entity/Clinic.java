@@ -1,9 +1,5 @@
 package com.edutech.progressive.entity;
 
-<<<<<<< HEAD
-public class Clinic {
-
-=======
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -90,5 +86,4 @@ public class Clinic {
     public void setDoctor(Doctor doctor) {
         this.doctor = doctor;
     }   
->>>>>>> 927715866ad88726fdcc804294787c6c83ec4758
 }
