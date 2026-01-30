@@ -30,3 +30,4 @@ public interface PatientService {
     //Do not implement this method until day-13
     default public void modifyPatientDetails(PatientDTO patientDTO) { }
 }
+
